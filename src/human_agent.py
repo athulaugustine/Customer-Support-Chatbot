@@ -8,7 +8,7 @@ def create_human_agent(api_key: str):
     Creates a natural human-like support agent (React agent with no tools).
     """
     llm = ChatGroq(
-        model="openai/gpt-oss-120b",   # same family as your main agent
+        model="llama-3.1-8b-instant",   # same family as your main agent
         temperature=0.7,               # warmer for more natural replies
         api_key=api_key,
     )
