@@ -20,7 +20,7 @@ def get_agent(api_key: str):
     tools = [faq_tool,get_current_datetime,create_ticket,update_ticket,delete_ticket,check_ticket,list_tickets,search_tickets,get_human_agent_response]
 
     llm = ChatGroq(
-        model="meta-llama/llama-3.3-70b-versatile",
+        model="llama-3.3-70b-versatile",
         temperature=0.0,  # deterministic
         api_key=api_key,
     )
