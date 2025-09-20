@@ -46,7 +46,8 @@ def get_agent(api_key: str):
 
     4. Human Agent Escalation:
     - If the user says “human”, “agent”, “support person”, or similar:
-        a) Call the get_human_agent_response tool to get output.
+        a) Call the get_human_agent_response tool and pass the conversation summary.
+        b) and respond with the output from get_human_agent_response tool.
         c) Never mention tools, internal reasoning, or system processes.
 
     5. Style:
