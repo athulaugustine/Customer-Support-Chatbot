@@ -57,10 +57,16 @@ def create_human_agent(api_key: str):
     @tool
     def get_human_agent_response(user_input: str) -> str:
         """Escalate to Alex, the human agent. Pass in a summary of the user's situation or request."""
+        print("*************###************")
+        print(user_input)
+        print("************###*************")
         response = agent_executor.invoke(
             {"messages": [{"role": "system", "content": user_input}]},
             {"configurable": {"thread_id": "2"}}
         )
+        print("*************************")
+        print(response['messages'][-1].content)
+        print("*************************")
         return response['messages'][-1].content
     
     return get_human_agent_response
