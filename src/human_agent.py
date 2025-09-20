@@ -55,10 +55,6 @@ def create_human_agent(api_key: str):
     @tool
     def get_human_agent_response(user_input: str) -> str:
         """Pass the conversation to this agent to get human agent response."""
-        print(f"***{user_input}***")
-        response = agent_executor.invoke( {"messages": [{"role": "system", "content": user_input}]})
-        print(f"***{response}***")
-        return response
-
+        response = agent_executor.invoke({"messages": [{"role": "system", "content": user_input}]}, {"configurable": {"thread_id": "2"}})
+        return response['messages'][-1].content
     return get_human_agent_response
-
