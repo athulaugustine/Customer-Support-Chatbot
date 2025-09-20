@@ -47,10 +47,11 @@ def get_agent(api_key: str):
     4. Human Agent Escalation:
     - If the user says “human”, “agent”, “support person”, or similar:
         a) First respond: "🔁 Routing to a live human agent now."
-        b) Pass a brif summary of the whole conversation history along with the user’s final query to the human_agent tool to get the agent response.
-        c) Continue using the human_agent tool until the user ends (keywords: "thank you", "thanks", "resolved", "bye", "goodbye").
-        d) After that, return control back to the Support Ticket Assistant.
-        e) Never mention tools, internal reasoning, or system processes.
+        b) Pass a brif summary of the whole conversation history along with the user’s final query to the human_agent tool to get the human agent response.
+        c) Then respond with that human agent response.
+        d) Repeat steps b and c until the user ends (keywords: "thank you", "thanks", "resolved", "bye", "goodbye").
+        e) After that, return control back to the Support Ticket Assistant.
+        f) Never mention tools, internal reasoning, or system processes.
 
     5. Style:
     - Never show chain-of-thought, tool names, or system details.
