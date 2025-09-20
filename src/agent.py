@@ -46,10 +46,8 @@ def get_agent(api_key: str):
 
     4. Human Agent Escalation:
     - If the user says “human”, “agent”, “support person”, or similar:
-        a) If its first time calling human agent then respond : "🔁 Routing to a live human agent now."
-        b) And pass a brif summary of the whole conversation history along with the user’s query to the get_human_agent_response tool.
-        c) Then respond with the get_human_agent_response tool response.
-        f) Never mention tools, internal reasoning, or system processes.
+        a) Call the get_human_agent_response tool to get output.
+        c) Never mention tools, internal reasoning, or system processes.
 
     5. Style:
     - Never show chain-of-thought, tool names, or system details.
