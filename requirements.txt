@@ -4,3 +4,12 @@ langchain_groq
 dotenv
 langgraph
 sqlalchemy
+faiss-cpu
+langchain_community
+unstructured
+openpyxl
+networkx
+msoffcrypto-tool
+langchain-huggingface
+sentence-transformers
+hf_xet
