@@ -12,7 +12,7 @@ if not logger.handlers:
     handler.setFormatter(formatter)
     logger.addHandler(handler)
 
-st.title("💬 Support Assistant")
+st.title("💬 Customer Support Chatbot")
 groq_api_key = st.text_input("Groq API Key", type="password")
 if not groq_api_key:
     st.info("Please add your Groq API key to continue.", icon="🗝️")
