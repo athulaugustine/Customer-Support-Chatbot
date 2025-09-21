@@ -2,11 +2,15 @@ from langchain_groq import ChatGroq
 from langgraph.checkpoint.memory import InMemorySaver
 from langgraph.prebuilt import create_react_agent
 from langchain_core.tools import tool
+import streamlit as st
+import uuid
 
 def create_human_agent(api_key: str):
     """
     Creates a natural human-like support agent (React agent with no tools).
     """
+    if "human_agent_config" not in st.session_state:
+        st.session_state.human_agent_config = {"configurable": {"thread_id": uuid.uuid4()}}
     llm = ChatGroq(
         model="llama-3.3-70b-versatile",   # same family as your main agent
         temperature=0.7,               # warmer for more natural replies
@@ -48,7 +52,7 @@ def create_human_agent(api_key: str):
     - Make the user feel genuinely heard, understood, and supported — like they’re talking to a real, kind human.
     - Prioritize empathy and clarity in every response.
     """
-    
+
     agent_executor = create_react_agent(
         model=llm,
         tools=[],  # 🚨 no tools → purely conversational
@@ -59,16 +63,10 @@ def create_human_agent(api_key: str):
     @tool
     def get_human_agent_response(user_input: str) -> str:
         """Escalate to Alex, the human agent. Pass in a summary of the user's situation or request."""
-        print("*************###************")
-        print(user_input)
-        print("************###*************")
         response = agent_executor.invoke(
             {"messages": [{"role": "system", "content": user_input}]},
-            {"configurable": {"thread_id": "2"}}
+            {"configurable": st.session_state.human_agent_config["configurable"]},
         )
-        print("*************************")
-        print(response['messages'][-1].content)
-        print("*************************")
         return response['messages'][-1].content
     
     return get_human_agent_response
