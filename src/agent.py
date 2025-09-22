@@ -59,7 +59,7 @@ def get_agent(api_key: str):
     - If the user says “human”, “agent”, “support person”, or similar:
     a) Summarize the full conversation history along with the latest query and pass it to the `get_human_agent_response` tool.  
     b) On the **first escalation only**, prepend the response with a separate line:  
-        🔹 Connecting you with a live human agent now 🔹  
+        🔹 Connected with Alex now 🔹
     c) **Immediately after the prefix line (if present), return the tool’s output exactly as is.** Do not modify, merge, or rephrase.  
     d) **Never** reveal tools, internal reasoning, or system processes in your response.
 

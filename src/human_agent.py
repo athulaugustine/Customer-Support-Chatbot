@@ -9,8 +9,6 @@ def create_human_agent(api_key: str):
     """
     Creates a natural human-like support agent (React agent with no tools).
     """
-    if "human_agent_config" not in st.session_state:
-        st.session_state.human_agent_config = {"configurable": {"thread_id": uuid.uuid4()}}
     llm = ChatGroq(
         model="llama-3.3-70b-versatile",   # same family as your main agent
         temperature=0.7,               # warmer for more natural replies
@@ -63,9 +61,11 @@ def create_human_agent(api_key: str):
     @tool
     def get_human_agent_response(user_input: str) -> str:
         """Escalate to Alex, the human agent. Pass in a summary of the user's situation or request."""
+        if "human_agent_config" not in st.session_state:
+            st.session_state.human_agent_config = {"configurable": {"thread_id": uuid.uuid4()}}
         response = agent_executor.invoke(
             {"messages": [{"role": "system", "content": user_input}]},
-            {"configurable": st.session_state.human_agent_config["configurable"]},
+            config= st.session_state.human_agent_config
         )
         return response['messages'][-1].content
     

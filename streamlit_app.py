@@ -53,7 +53,7 @@ else:
         with st.chat_message("assistant"):
             response_text = ""
             response_area = st.empty()
-            for chunk in st.session_state.agent.stream({"messages": [{"role": "user", "content": prompt}]},stream_mode="updates", config= st.session_state.agent_config["configurable"]):
+            for chunk in st.session_state.agent.stream({"messages": [{"role": "user", "content": prompt}]},stream_mode="updates", config= st.session_state.agent_config):
                 logger.info(chunk)
                 if 'agent' in chunk:
                     response_text += chunk['agent']['messages'][-1].content

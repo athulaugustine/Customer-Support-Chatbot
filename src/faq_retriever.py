@@ -46,10 +46,8 @@ def get_faq_retriever():
 @tool
 def faq_tool(original_query: str) -> str:
     """Searches the FAQ documents and returns the most relevant answer. Always pass the original user query."""
-    print(f"**{original_query}**")
     retriever = get_faq_retriever()
     docs = retriever.invoke(original_query)
-    print(f"**{docs}**")
     if docs:
         return docs[0].page_content
     else:
