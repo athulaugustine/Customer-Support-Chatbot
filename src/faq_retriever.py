@@ -38,7 +38,7 @@ def get_faq_retriever():
         vector_store.save_local("./src/faq_faiss_index")
         print("FAISS index Saved.")
 
-    retriever = vector_store.as_retriever(search_type="similarity_score_threshold", search_kwargs={"score_threshold": 0.5, "k": 1})
+    retriever = vector_store.as_retriever(search_type="similarity_score_threshold", search_kwargs={"score_threshold": 0.3, "k": 1})
 
     return retriever
 
