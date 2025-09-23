@@ -1,6 +1,7 @@
 # Customer Support Chatbot
 A Streamlit-based AI-powered customer support assistant that answers FAQs, manages support tickets, and routes queries to human agents when needed.
-<img width="1895" height="985" alt="image" src="https://github.com/user-attachments/assets/bb43319b-4cf2-4b98-a750-13964b2dafbe" />
+<img width="1906" height="985" alt="image" src="https://github.com/user-attachments/assets/23102c4e-88cd-4f84-a77e-031831f0f225" />
+<img width="1909" height="989" alt="image" src="https://github.com/user-attachments/assets/34cad26f-1c4c-442d-8c90-6d468e425b2c" />
 
 # 🖥️ App Preview
 [![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://customer-support-chatbot-zoaqv9nmdgfrje8joiecow.streamlit.app/)
